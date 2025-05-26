@@ -1,0 +1,1 @@
+// このファイルの内容はInventoryHandlers/InventoryEventHandlers.csおよびInOutHandlers/InOutEventHandlers.csに分割・移動しました。

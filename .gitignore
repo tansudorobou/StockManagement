@@ -1,0 +1,39 @@
+# .NET build results
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# User secrets
+secrets.json
+
+# ASP.NET/Entity Framework
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+
+# Web build
+Web/node_modules/
+Web/dist/
+
+# Others
+*.swp
+*.tmp
+*.bak
+
+# Rider
+.idea/
+*.sln.iml
