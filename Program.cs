@@ -55,7 +55,6 @@ app.MapGet("/inouts", (IInOutRepository repo) =>
 // 在庫追加
 app.MapPost("/inventories", (IInventoryRepository repo, Domain.Entities.Inventory inventory) =>
 {
-    Console.WriteLine(inventory.LotNo.ToString());
     repo.Add(inventory);
     return Results.Created($"/inventories/{inventory.Id}", inventory);
 }).WithName("AddInventory");
