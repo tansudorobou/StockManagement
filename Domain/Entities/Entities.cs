@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Domain.Entities {
     public abstract class BaseEntity {
         public Guid Id { get; protected set; }
@@ -18,6 +20,7 @@ namespace Domain.Entities {
         }
     }
 
+
     public class ItemMaster : BaseEntity {
         public string ItemCode { get; }
         public string ItemName { get; }
@@ -30,8 +33,10 @@ namespace Domain.Entities {
             Classification = classification;
             UnitPrice = unitPrice;
         }
+        [JsonConstructor]
         public ItemMaster(Guid id, DateTime createdAt, DateTime updatedAt, string itemCode, string itemName, Classification classification, int unitPrice)
-            : base(id, createdAt, updatedAt) {
+            : base(id, createdAt, updatedAt)
+        {
             ItemCode = itemCode;
             ItemName = itemName;
             Classification = classification;
@@ -42,7 +47,10 @@ namespace Domain.Entities {
     public class Classification {
         public string Item { get; }
         public string Asset { get; }
-        public Classification(string item, string asset) {
+        
+        [JsonConstructor]
+        public Classification(string item, string asset)
+        {
             Item = item;
             Asset = asset;
         }
@@ -68,8 +76,11 @@ namespace Domain.Entities {
             LotNo = lotNo;
             DateTime = dateTime;
         }
+
+        [JsonConstructor]
         public InOut(Guid id, DateTime createdAt, DateTime updatedAt, ItemMaster itemMaster, Classification classification, string name, int qty, int unitPrice, string lotNo, DateTimeOffset dateTime)
-            : base(id, createdAt, updatedAt) {
+            : base(id, createdAt, updatedAt)
+        {
             ItemMaster = itemMaster;
             Classification = classification;
             Name = name;
@@ -80,22 +91,27 @@ namespace Domain.Entities {
         }
     }
 
-    public class Inventory : BaseEntity {
+    public class Inventory : BaseEntity
+    {
         public ItemMaster ItemMaster { get; }
         public string LotNo { get; }
         public int Qty { get; private set; }
         public int Price { get; }
         public int UsedCount { get; private set; }
         public Inventory(ItemMaster itemMaster, string lotNo, int qty, int price, int usedCount)
-            : base() {
+            : base()
+        {
             ItemMaster = itemMaster;
             LotNo = lotNo;
             Qty = qty;
             Price = price;
             UsedCount = usedCount;
         }
+        
+        [JsonConstructor]
         public Inventory(Guid id, DateTime createdAt, DateTime updatedAt, ItemMaster itemMaster, string lotNo, int qty, int price, int usedCount)
-            : base(id, createdAt, updatedAt) {
+            : base(id, createdAt, updatedAt)
+        {
             ItemMaster = itemMaster;
             LotNo = lotNo;
             Qty = qty;
