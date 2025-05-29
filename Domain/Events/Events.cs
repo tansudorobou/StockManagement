@@ -1,4 +1,3 @@
-using Domain.Model;
 
 namespace Domain.Events
 {
