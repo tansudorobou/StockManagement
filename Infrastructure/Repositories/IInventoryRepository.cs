@@ -1,5 +1,5 @@
 namespace Infrastructure.Repositories {
-    using Domain.Entities;
+    using Domain.Model;
     public interface IInventoryRepository {
         Inventory? GetById(Guid id);
         Inventory? GetByItemAndLot(string itemCode, string lotNo);

@@ -1,4 +1,4 @@
-using Domain.Entities;
+using Domain.Model;
 
 namespace Domain.Events
 {
@@ -59,5 +59,10 @@ namespace Domain.Events
             QtyAtMonthEnd = qtyAtMonthEnd;
             MonthEnd = monthEnd;
         }
+    }
+
+  public enum ChangeType {
+        Increase,
+        Decrease
     }
 }

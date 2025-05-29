@@ -53,14 +53,14 @@ app.MapGet("/inouts", (IInOutRepository repo) =>
 }).WithName("GetInOuts");
 
 // 在庫追加
-app.MapPost("/inventories", (IInventoryRepository repo, Domain.Entities.Inventory inventory) =>
+app.MapPost("/inventories", (IInventoryRepository repo, Domain.Model.Inventory inventory) =>
 {
     repo.Add(inventory);
     return Results.Created($"/inventories/{inventory.Id}", inventory);
 }).WithName("AddInventory");
 
 // 入出庫履歴追加
-app.MapPost("/inouts", (IInOutRepository repo, Domain.Entities.InOut inOut) =>
+app.MapPost("/inouts", (IInOutRepository repo, Domain.Model.InOut inOut) =>
 {
     repo.Add(inOut);
     return Results.Created($"/inouts/{inOut.Id}", inOut);
